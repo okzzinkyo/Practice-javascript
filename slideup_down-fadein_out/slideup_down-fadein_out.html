@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slideup_down-fadein_out</title>
+    <!-- style CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- grid CSS -->
+    <link rel="stylesheet" href="./assets/css/grid.min.css" />
+    <!-- jquery -->
+    <script src="./assets/js/jquery-1.12.4.js"></script>
+  <body>
+    <nav class="menu">
+      <div></div>
+    </nav>
+    <section class="black">
+      <div class="triangle fadeToogle" id="slideToggle01"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+      </div>
+    </section>
+    <section class="yellow">
+      <div class="triangle fadeToogle" id="slideToggle02"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p class="text-box">퍼센트</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="black">
+      <div class="triangle fadeToogle" id="slideToggle03"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
+      </div>
+    </section>
+    <script>
+
+      $(window).scroll(function () {
+        // calculate the percentage the user has scrolled down the page
+        var scrollPercent =
+          ($(window).scrollTop() / $(document).height()) * 100;
+          
+          if(scrollPercent >=1){
+            $("#slideToggle01").fadeIn(500);
+            $("#slideToggle01").slideDown(500);        
+          }
+          
+          if(scrollPercent <1){
+            $("#slideToggle01").fadeOut(500);
+            $("#slideToggle01").slideUp(500);
+        
+          }
+
+          if(scrollPercent >=15){
+            $("#slideToggle02").fadeIn(500);
+            $("#slideToggle02").slideDown(500);
+            
+          } 
+
+          if(scrollPercent <15){
+            $("#slideToggle02").fadeOut(500);
+            $("#slideToggle02").slideUp(500);
+            
+            
+          } 
+
+          if(scrollPercent >=24){
+            $("#slideToggle03").fadeIn(500);
+            $("#slideToggle03").slideDown(500);
+            
+          } 
+
+          if(scrollPercent <24){
+            $("#slideToggle03").fadeOut(500);
+            $("#slideToggle03").slideUp(500);
+            
+          }
+
+        $(".text-box").text(scrollPercent + "%");
+      });
+      
+    </script>
+  </body>
+</html>
