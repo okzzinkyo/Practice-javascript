@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous - Loading Screen</title>
+    <script src="../js/p5.js"></script>
+  </head>
+  <body>
+    <!-- large file이 업로드 되는 동안 웹페이지가 로드 중인 것을 알려줄 필요가 있다. -->
+    <div id="p5_loading" class="loadingclass">
+      this could be some sweet graphics loading lots of bits.
+    </div>
+    <script>
+      let img;
+      function preload() {
+        img = loadImage("cat.jpg");
+      }
+
+      function setup() {
+        createCanvas(400, 240);
+        image(img, 0, 0);
+      }
+    </script>
+  </body>
+</html>

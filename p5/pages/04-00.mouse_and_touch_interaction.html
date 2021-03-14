@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse and touch interaction</title>
+    <script src="../js/p5.js"></script>
+  </head>
+  <body>
+    <script>
+      // function touchMoved() {
+      //   // do some stuff
+      //   return false;
+      //   //touchMoved 행위를 막게 하기 위해서 return false 사용.
+      // }
+      // On a touchscreen device, touch
+      // the canvas using one or more fingers
+      // at the same time
+      function draw() {
+        clear();
+        let display = touches.length + " touches";
+        text(display, 5, 10);
+        // text(ID,x,y)
+      }
+    </script>
+    <!--           
+      <PC>              <mobile device>
+      mouse             touch 
+      mouseX            touchX
+      mouseY            touchY
+                        touches[]
+      mouseIsPressed
+      mousePressed()   	touchStarted()
+      mouseMoved()
+      mouseDragged()	touchMoved()
+      mouseReleased()	touchEnded()
+      mouseClicked()	
+      mouseScrolled()
+      -->
+  </body>
+</html>

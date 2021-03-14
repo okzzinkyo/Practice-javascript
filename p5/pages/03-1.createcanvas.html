@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-1.createCanvas</title>
+    <script src="../js/p5.js"></script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      #mycontainer {
+        width: 1440px;
+        margin: 0 auto;
+        background-color: cadetblue;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mycontainer"></div>
+    <script>
+      function setup() {
+        let mycanvas = createCanvas(600, 400);
+        mycanvas.parent("mycontainer");
+      }
+
+      // function setup() {
+      //   createCanvas(600, 400);
+      //   line(15, 20, 70, 90);
+      // }
+    </script>
+  </body>
+</html>

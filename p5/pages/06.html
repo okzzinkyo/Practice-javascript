@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instantiation / namespace</title>
+    <script src="../js/p5.js"></script>
+  </head>
+  <body>
+    <script>
+      let x = 100;
+      let y = 100;
+
+      function setup() {
+        createCanvas(200, 200);
+      }
+
+      function draw() {
+        background(0);
+        fill(255);
+        ellipse(x, y, 50, 50);
+      }
+      //  하나 이상의 p5.js 혹은 다른 js와 혼동을 막기 위해
+      // 1way] "instance mode"
+
+      const s = (p) => {
+        let x = 100;
+        let y = 100;
+
+        p.setup = function () {
+          p.createCanvas(700, 410);
+        };
+
+        p.draw = function () {
+          p.background(0);
+          p.fill(255);
+          p.rect(x, y, 50, 50);
+        };
+      };
+      // let myp5 = new p5(s, 'myContainer(ID)');
+      let myp5 = new p5(s);
+
+      // 2way] on-demand global mode
+      // call new p5() without any arguments(To initialize on-demand global mode)
+      // 이렇게 p5를 명시 적으로 호출하면 스케치가로드되는 방식을 더 많이 제어 할 수 있으므로 다른 라이브러리로 작업 할 때 유용합니다.
+      new p5();
+
+      let boop = random(100);
+
+      function setup() {
+        createCanvas(100, 100);
+      }
+
+      function draw() {
+        background(255, 0, boop);
+      }
+    </script>
+  </body>
+</html>

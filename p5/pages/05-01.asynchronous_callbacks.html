@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asynchronous - Callbacks</title>
+    <script src="../js/p5.js"></script>
+  </head>
+  <body>
+    <!-- 원래 코드 한줄이 끝나면 다음 코드가 실행되지만,
+      비동기 함수는 프로그램 속도를 빠르게하고, Loading images, external files, URLs 등을 다룬다.-->
+    <script>
+      // 모든 로드 함수는 콜백함수를 선택적으로 마지막 인수로 허용한다.
+      // ex1] img가 로드되면, img가 그려진다.
+      function setup() {
+        createCanvas(400, 240);
+        loadImage("../assets/imges/cat.jpg", drawCat);
+      }
+
+      function drawCat(img) {
+        image(img, 0, 0);
+      }
+      // ex2] img를 로드 하는 즉시, img를 불러낸다. which ends up blank:
+
+      function setup() {
+        createCanvas(400, 240);
+        let img = loadImage("../assets/images/cat.jpg");
+        image(img, 0, 0);
+      }
+    </script>
+  </body>
+</html>

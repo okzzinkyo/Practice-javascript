@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <title>Delivery_Message(slide)</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #d2d2d2;
+      }
+
+      ul,
+      li,
+      ol {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      input,
+      button {
+        border-style: none;
+        background: none;
+      }
+
+      input:focus,
+      input:hover,
+      button:focus,
+      button:hover {
+        outline: none;
+        box-shadow: none;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .wrap {
+        position: relative;
+        width: 320px;
+        height: 568px;
+        background-color: #f3f3f3;
+        overflow: hidden;
+      }
+
+      .message {
+        width: 290px;
+        border: #c2c2c2 1px solid;
+        border-radius: 5px;
+      }
+
+      /* form - delivery */
+      .wrap form {
+        background-color: #ffffff;
+        padding: 20px 15px;
+      }
+      .delivery {
+        position: relative;
+        background-color: #ffffff;
+      }
+
+      #delivery_input {
+        width: 260px;
+        height: 50px;
+        padding: 10px;
+      }
+
+      #delivery_input2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 50px;
+        padding: 10px;
+        border-radius: 5px;
+        background: #ffffff;
+      }
+
+      .btn_down {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+      }
+      /* pop up */
+      .black {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        background: rgb(0, 0, 0);
+        opacity: 0.4;
+        width: 100%;
+        height: 568px;
+      }
+      .bar {
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 20px;
+      }
+      .close-bar {
+        width: 20px;
+        height: 2px;
+        background-color: #d3d3d3;
+        border-radius: 2px;
+        z-index: 999;
+      }
+
+      .popup {
+        background-color: #ffffff;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 400px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        /* box-shadow: 0 -1px 50px 0 rgba(0, 0, 0, 0.4); */
+        /* transform: translateY(500px); */
+      }
+
+      .popup_title {
+        width: 100%;
+        font-size: 18px;
+        font-weight: 800;
+        text-align: center;
+        padding: 23px;
+      }
+      .popup_item li:last-child {
+        margin-bottom: 28px;
+      }
+      .popup_item li {
+        display: block;
+        font-size: 14px;
+        width: 320px;
+        padding: 15px 20px;
+      }
+      .popup_item li:hover {
+        color: royalblue;
+      }
+
+      .close {
+        font-size: 14px;
+        width: 288px;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0;
+        border: #c2c2c2 1px solid;
+        border-radius: 2px;
+      }
+      .close:hover {
+        border: royalblue 2px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <form>
+        <div class="delivery message">
+          <input
+            id="delivery_input"
+            type="text"
+            placeholder="배송 메세지를 입력해주세요."
+          />
+          <input id="delivery_input2" type="text" />
+          <div class="btn_down"><i class="fas fa-chevron-down"></i></div>
+        </div>
+      </form>
+      <div class="black"></div>
+      <div class="popup">
+        <div class="bar"><div class="close-bar"></div></div>
+        <p class="popup_title">배송 메세지</p>
+        <ul class="popup_item">
+          <li>문 앞에 두고 가주세요.</li>
+          <li>경비실에 맡겨주세요.</li>
+          <li>배송 전 연락바랍니다.</li>
+          <li>파손 주의 상품입니다.</li>
+          <li>직접 입력</li>
+        </ul>
+        <button class="close" type="button">닫기</button>
+      </div>
+    </div>
+    <script>
+      $(window).ready(function () {
+        $(".popup,.black,#delivery_input2").hide();
+        console.log("숨었니?");
+        //delivery_input slideUp,Down, 초기 설정
+        $("#delivery_input,.btn-down").click(function () {
+          $("#delivery_input").blur();
+          $(".popup").slideDown(500);
+          $(".black").show();
+          console.log("나왔니?");
+        });
+        $(".btn_down").click(function () {
+          $("#delivery_input2").hide();
+          $(".popup").slideDown(500);
+          $(".black").show();
+          console.log("다시 숨었니?");
+        });
+        $(".close,.black").click(function () {
+          $(".popup").slideUp(500);
+          $(".black,#delivery_input2").hide();
+          $("#delivery_input").val("");
+        });
+
+        $(".bar").swipe({
+          swipe: function (
+            event,
+            direction,
+            distance,
+            duration,
+            fingerCount,
+            fingerData
+          ) {
+            if (direction == "down") {
+            } else if (direction == "up") {
+              threshold: 0;
+            }
+          },
+        });
+      });
+
+      // selected delivery_input value 처리
+      $(".popup_item li").click(function () {
+        $(this).addClass("selected").siblings().removeClass("selected");
+        console.log("선택됨");
+        var selected_message = $(".selected").text();
+        if (selected_message == "직접 입력") {
+          $("#delivery_input2").val("").show().focus();
+          $("#delivery_input").val(selected_message);
+          $(".popup").slideUp(500);
+          $(".black").hide();
+        } else {
+          $("#delivery_input, #delivery_input2").val(selected_message);
+          $(".popup").slideUp(500);
+          $(".black").hide();
+        }
+      });
+
+      // 직접 입력 선택후 text 입력 없이 다른 화면 클릭하면 원상태 복귀???
+      // $(".delivery_input2 .selected").blur(function () {
+      //   if ($(".delivery_input2").val() == "") {
+      //     $(".delivery_input").val("");
+      //     $(".delivery_input2").hide;
+      //   }
+      // });
+    </script>
+  </body>
+</html>

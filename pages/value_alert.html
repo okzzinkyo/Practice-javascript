@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>value_alert</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white">
+    <input name="num1" type="hidden" value="“정답입니다.”" />
+  </body>
+  <script>
+    // Jquery를 이용해서 input에 있는 num1의 value를 alert 시켜라.. 추가 조건 value값을 변수에 담아서 alert시키기//
+
+    var value = $("input[name='num1']").val();
+    alert(value);
+  </script>
+</html>

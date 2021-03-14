@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Img Zoom</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/zoom-master/jquery.zoom.js"></script>
+    <style>
+      .wrap {
+        display: flex;
+      }
+      .photo {
+        margin-right: 10px;
+        overflow: hidden;
+      }
+      .photo img {
+        width: 1008px;
+        height: 756px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="photo">
+        <img src="../assets/images/photo01.jpg" alt="photo01" />
+      </div>
+      <div class="photo">
+        <img src="../assets/images/photo02.jpg" alt="photo02" />
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".photo").zoom();
+      });
+
+      // 클릭동안 zoom - $('#ex2').zoom({ on:'grab' });
+      // 클릭하면 zoom 작동 토글 - $('#ex3').zoom({ on:'click' });
+      // 클릭한 부분 zoom - $('#ex4').zoom({ on:'toggle' });
+      // 휠로 zoom,zoom out - $('#ex5').wheelzoom();
+      // $('#ex5').wheelzoom({zoom:0.05}); $('#ex5').trigger('wheelzoom.reset');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-2.createCanvas</title>
+    <script src="../js/p5.js"></script>
+  </head>
+  <body>
+    <script>
+      // drawingContext
+      // p5에서 지원하지 않는 HTML5 Canvas 기능을 drawingContext을 통해 불러냄.
+      function setup() {
+        drawingContext.shadowOffsetX = 5;
+        drawingContext.shadowOffsetY = -5;
+        drawingContext.shadowBlur = 10;
+        drawingContext.shadowColor = "black";
+        background(200);
+        ellipse(width / 2, height / 2, 50, 50);
+      }
+    </script>
+  </body>
+</html>
