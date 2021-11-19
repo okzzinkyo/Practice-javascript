@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03-1.createCanvas</title>
+    <script src="../js/p5.js"></script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      #mycontainer {
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mycontainer"></div>
+    <script>
+      function setup() {
+        let mycanvas = createCanvas(windowWidth, windowHeight);
+        mycanvas.parent("mycontainer");
+      }
+
+      let img;
+      function preload() {
+        img = loadImage("../assets/images/me01.png");
+      }
+      function draw() {
+        if (mouseIsPressed) {
+          clear();
+          background(0);
+        }
+        mouseimg = image(img, mouseX, mouseY, 50, 45);
+      }
+
+      // function setup() {
+      //   createCanvas(600, 400);
+      //   line(15, 20, 70, 90);
+      // }
+    </script>
+  </body>
+</html>
